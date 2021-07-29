@@ -5,6 +5,7 @@ import { Administrator } from 'entities/administrator.entity';
 import { AppController } from './app.controller';
 import { AdministratorService } from './services/administrator/administrator.service';
 
+
 @Module({
   imports: [
     TypeOrmModule.forRoot({
@@ -15,9 +16,10 @@ import { AdministratorService } from './services/administrator/administrator.ser
       database: databaseConfiguration.database,
       port: 3306,
       entities: [Administrator]
-    })
+    }),
+    TypeOrmModule.forFeature([Administrator])
   ],
   controllers: [AppController],
-  providers: [AdministratorService],
+  providers: [AdministratorService]
 })
 export class AppModule {}
