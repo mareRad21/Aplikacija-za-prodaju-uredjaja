@@ -2,11 +2,10 @@ import { Injectable } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
 import { Administrator } from 'entities/administrator.entity';
 import { AddAdministratorDto } from 'src/dtos/administrator/add.administrator.dto';
-import { Repository } from 'typeorm';
+import { Repository } from 'typeorm/repository/Repository';
 import * as crypto from "crypto";
 import { EditAdministratorDto } from 'src/dtos/administrator/edit.administrator.dto';
 import { ApiResponse } from 'src/misc/api.response.class';
-import { resolve } from 'path/posix';
 
 @Injectable()
 export class AdministratorService {
