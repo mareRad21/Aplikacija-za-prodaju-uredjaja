@@ -15,10 +15,12 @@ import { User } from 'entities/user.entity';
 import { AdministratorController } from './controllers/api/administrator.controller';
 import { ArticleController } from './controllers/api/article.controller';
 import { CategoryController } from './controllers/api/category.controller';
+import { FeatureController } from './controllers/api/feature.controller';
 import { AppController } from './controllers/app.controller';
 import { AdministratorService } from './services/administrator/administrator.service';
 import { ArticleService } from './services/article/article.service';
 import { CategoryService } from './services/category/category.service';
+import { FeatureService } from './services/feature/feature.service';
 import { UserService } from './services/user/user.service';
 
 
@@ -45,9 +47,9 @@ import { UserService } from './services/user/user.service';
         User,
         ]
     }),
-    TypeOrmModule.forFeature([Administrator,Article, Category, User])
+    TypeOrmModule.forFeature([Administrator,Article, ArticlePrice, ArticleFeature, Category, Feature, User])
   ],
-  controllers: [AppController, AdministratorController, ArticleController, CategoryController],
-  providers: [AdministratorService, ArticleService, CategoryService, UserService]
+  controllers: [AppController, AdministratorController, ArticleController, CategoryController, FeatureController],
+  providers: [AdministratorService, ArticleService, CategoryService, FeatureService, UserService]
 })
 export class AppModule {}
