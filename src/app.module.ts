@@ -1,4 +1,4 @@
-import { Module } from '@nestjs/common';
+import { MiddlewareConsumer, Module, NestModule } from '@nestjs/common';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { databaseConfiguration } from 'config/database.configuration';
 import { Administrator } from 'entities/administrator.entity';
@@ -14,9 +14,11 @@ import { Photo } from 'entities/photo.entity';
 import { User } from 'entities/user.entity';
 import { AdministratorController } from './controllers/api/administrator.controller';
 import { ArticleController } from './controllers/api/article.controller';
+import { AuthController } from './controllers/api/auth.controller';
 import { CategoryController } from './controllers/api/category.controller';
 import { FeatureController } from './controllers/api/feature.controller';
 import { AppController } from './controllers/app.controller';
+import { AuthMiddleware } from './middelwares/auth.middleware';
 import { AdministratorService } from './services/administrator/administrator.service';
 import { ArticleService } from './services/article/article.service';
 import { CategoryService } from './services/category/category.service';
@@ -49,7 +51,17 @@ import { UserService } from './services/user/user.service';
     }),
     TypeOrmModule.forFeature([Administrator,Article, ArticlePrice, ArticleFeature, Category, Feature, User])
   ],
-  controllers: [AppController, AdministratorController, ArticleController, CategoryController, FeatureController],
-  providers: [AdministratorService, ArticleService, CategoryService, FeatureService, UserService]
+  controllers: [AppController, AdministratorController, ArticleController, CategoryController, FeatureController, AuthController],
+  providers: [AdministratorService, ArticleService, CategoryService, FeatureService, UserService],
+  exports: [AdministratorService]
 })
-export class AppModule {}
+
+
+export class AppModule implements NestModule {
+  configure(consumer: MiddlewareConsumer){
+    consumer
+    .apply(AuthMiddleware)
+    .exclude('auth/*')
+    .forRoutes('api/*')
+  }
+}
