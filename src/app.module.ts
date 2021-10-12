@@ -23,6 +23,7 @@ import { AdministratorService } from './services/administrator/administrator.ser
 import { ArticleService } from './services/article/article.service';
 import { CategoryService } from './services/category/category.service';
 import { FeatureService } from './services/feature/feature.service';
+import { PhotoService } from './services/photo/photo.service';
 import { UserService } from './services/user/user.service';
 
 
@@ -49,10 +50,10 @@ import { UserService } from './services/user/user.service';
         User,
         ]
     }),
-    TypeOrmModule.forFeature([Administrator,Article, ArticlePrice, ArticleFeature, Category, Feature, User])
+    TypeOrmModule.forFeature([Administrator,Article, ArticlePrice, ArticleFeature, CartArticle, Cart, Category, Feature, Order,Photo, User])
   ],
   controllers: [AppController, AdministratorController, ArticleController, CategoryController, FeatureController, AuthController],
-  providers: [AdministratorService, ArticleService, CategoryService, FeatureService, UserService],
+  providers: [AdministratorService, ArticleService, CategoryService, FeatureService, PhotoService, UserService],
   exports: [AdministratorService]
 })
 
