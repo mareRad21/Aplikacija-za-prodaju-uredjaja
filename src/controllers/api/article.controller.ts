@@ -1,4 +1,4 @@
-import { Body, Controller, Param, Post, UploadedFile, UseInterceptors } from "@nestjs/common";
+import { Body, Controller, Param, Post, Req, UploadedFile, UseInterceptors } from "@nestjs/common";
 import { FileInterceptor } from "@nestjs/platform-express";
 import { Crud } from "@nestjsx/crud";
 import { Article } from "entities/article.entity";
@@ -9,6 +9,9 @@ import {diskStorage} from "multer";
 import { PhotoService } from "src/services/photo/photo.service";
 import { Photo } from "entities/photo.entity";
 import { StorageConfiguration } from "config/storage.configuration";
+import * as fileType from "file-type";
+import * as fs from "fs";
+import * as sharp from "sharp";
 
 @Controller('api/article')
 @Crud({
@@ -79,12 +82,14 @@ export class ArticleController {
             fileFilter: (req, file, callback)=>{
                 //Check extension
                 if(!file.originalname.toLowerCase().match(/\.(jp|pn)g$/)){
-                    callback(new Error("Bad file extentions!"), false);
+                    req.fileFilterError = "Bad file extension!"
+                    callback(null, false);
                     return;
                 }
                 //Check content type image/jpeg or image/png (mymetype)
                 if(!(file.mimetype.includes('jpeg') || file.mimetype.includes('png'))){
-                    callback(new Error("Bad type content!"), false);
+                    req.fileFilterError = "Bad file content type!"
+                    callback(null, false);
                     return;
                 }
 
@@ -92,11 +97,43 @@ export class ArticleController {
             },
             limits:{
                 files: 1,
-                fieldSize: StorageConfiguration.photoMaxFileSize
+                fileSize: StorageConfiguration.photoMaxFileSize
             }
         })
     )
-    async uploadPhoto(@Param('id') articleId: number, @UploadedFile() photo): Promise<ApiResponse|Photo>{
+    async uploadPhoto(
+        @Param('id') articleId: number,
+        @UploadedFile() photo,
+        @Req() req
+        ): Promise<ApiResponse|Photo>{
+        if(req.fileFilterError){
+            return new ApiResponse('error',-4002,req.fileFilterError);
+        }
+        if(!photo){
+            return new ApiResponse('error',-4003, "File not uploaded!");
+        }
+        // Read the uploaded file
+        const fileTypeResult = await fileType.fromFile(photo.path);
+        if(!fileTypeResult){
+            //TODO: Delete File
+            fs.unlinkSync(photo.path);
+            return new ApiResponse('error',-4002, "Cannot detect file type!" );
+        }
+
+         //TODO: Real Mime Type Check 
+
+        const realMimeType = fileTypeResult.mime;
+
+        if(!(realMimeType.includes('jpeg') || realMimeType.includes('png'))){
+            //TODO: Delete File
+            fs.unlinkSync(photo.path);
+            return new ApiResponse('error',-4002,"Bad file content type!");
+        }
+        
+        //TODO: Save Resized Photo
+        await this.createThumb(photo);
+        await this.creatSmallImage(photo);
+
         const newPhoto:Photo = new Photo();
         newPhoto.articleId = articleId;
         newPhoto.imagePath = photo.filename;
@@ -107,5 +144,37 @@ export class ArticleController {
             return new ApiResponse('error',-4001);
         }
         return savedPhoto;
+    }
+    async createThumb(photo){
+        const orignialFilePath = photo.path;
+        const fileName = photo.filename;
+
+        const destinationFilePath = StorageConfiguration.photoDestination +"thumb/"+fileName;
+        await sharp(orignialFilePath)
+            .resize({
+            fit: 'contain',
+            width: StorageConfiguration.photoThumbSize.width,
+            height: StorageConfiguration.photoThumbSize.height,
+            background: {
+                r: 255, g: 2555, b: 255, alpha: 0.0
+            }
+        })
+        .toFile(destinationFilePath);
+    }
+    async creatSmallImage(photo){
+        const orignialFilePath = photo.path;
+        const fileName = photo.filename;
+
+        const destinationFilePath = StorageConfiguration.photoDestination +"small/"+fileName;
+        await sharp(orignialFilePath)
+            .resize({
+            fit: 'contain',
+            width: StorageConfiguration.photoSmallSize.width,
+            height: StorageConfiguration.photoSmallSize.height,
+            background: {
+                r: 255, g: 255, b: 255, alpha: 0.0
+            }
+        })
+        .toFile(destinationFilePath);
     }
 }
