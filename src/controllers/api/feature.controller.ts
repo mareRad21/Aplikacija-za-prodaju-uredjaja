@@ -20,8 +20,11 @@ import { FeatureService } from "src/services/feature/feature.service";
             category:{
                 eager: true
             },
+            articleFeatures:{
+                eager:false
+            },
             articles:{
-                eager: true
+                eager: false
             }
         }
     }
