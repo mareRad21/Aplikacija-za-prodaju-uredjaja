@@ -54,7 +54,7 @@ import { UserService } from './services/user/user.service';
   ],
   controllers: [AppController, AdministratorController, ArticleController, CategoryController, FeatureController, AuthController],
   providers: [AdministratorService, ArticleService, CategoryService, FeatureService, PhotoService, UserService],
-  exports: [AdministratorService]
+  exports: [AdministratorService, UserService]
 })
 
 
