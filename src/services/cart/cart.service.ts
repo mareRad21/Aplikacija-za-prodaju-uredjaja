@@ -49,10 +49,10 @@ export class CartService{
        return await this.cart.save(newCart);
    }
 
-   async addArticleToCart(articleId: number, cartId: number, quantity: number): Promise<Cart>{
+   async addArticleToCart(cartId: number, articleId: number, quantity: number): Promise<Cart>{
        let record:CartArticle = await this.cartArticle.findOne({
-           articleId: articleId,
            cartId: cartId,
+           articleId: articleId,
        });
 
        if(!record){
@@ -66,7 +66,7 @@ export class CartService{
 
         await this.cartArticle.save(record);
 
-        return await this.getById(cartId);
+        return this.getById(cartId);
 
    }
 
@@ -82,4 +82,21 @@ export class CartService{
    
    }
 
+   async changeQuantity(cartId: number, articleId: number, newQuantity: number): Promise<Cart>{
+    let record:CartArticle = await this.cartArticle.findOne({
+        cartId: cartId,
+        articleId: articleId,
+    });
+
+    if(record){
+        record.quantity = newQuantity;
+        if(record.quantity === 0){
+            await this.cartArticle.delete(record.cartArticleId);
+        } else  {
+            await this.cartArticle.save(record);
+        }
+    }
+
+    return await this.getById(cartId);
+    }
 }

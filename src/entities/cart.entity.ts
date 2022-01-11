@@ -18,7 +18,7 @@ export class Cart {
   @PrimaryGeneratedColumn({ type: "int", name: "cart_id", unsigned: true })
   cartId: number;
 
-  @Column( {type:"int", name: "user_id", unsigned: true, default: () => "'0'" })
+  @Column( {type:"int", name: "user_id", unsigned: true})
   userId: number;
 
   @Column( {
