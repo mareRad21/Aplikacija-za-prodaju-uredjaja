@@ -35,3 +35,4 @@ lerna-debug.log*
 
 #Nasi Fajlovi
 .env
+.mail.config.ts

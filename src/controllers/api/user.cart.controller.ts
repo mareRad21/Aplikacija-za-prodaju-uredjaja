@@ -8,13 +8,15 @@ import { AllowToRoles } from "src/misc/allow.to.roles.descriptor";
 import { ApiResponse } from "src/misc/api.response.class";
 import { RoleCheckerGuard } from "src/misc/role.checker.guard";
 import { CartService } from "src/services/cart/cart.service";
+import { OrderMailerService } from "src/services/order/order.mailer.service";
 import { OrderService } from "src/services/order/order.service";
 
 @Controller('api/user/cart')
 export class UserCartController{
     constructor(
         private cartService:CartService,
-        private orderService:OrderService
+        private orderService:OrderService,
+        private orderMailerService:OrderMailerService
     ){}
 
     private async getActiveCartForUserId(userId: number): Promise<Cart>{
@@ -54,7 +56,15 @@ export class UserCartController{
     @AllowToRoles('user')
     async makeOrder(@Req() req: Request): Promise<Order | ApiResponse>{
         const cart = await this.getActiveCartForUserId(req.token.id);
-        return await this.orderService.add(cart.cartId);
+        const order = await this.orderService.add(cart.cartId);
+
+        if(order instanceof ApiResponse){
+            return order;
+        }
+
+        await this.orderMailerService.sendOrderEmail(order)
+
+        return order;
     }
 
 }
