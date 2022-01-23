@@ -27,7 +27,7 @@ import { ArticleService } from './services/article/article.service';
 import { CartService } from './services/cart/cart.service';
 import { CategoryService } from './services/category/category.service';
 import { FeatureService } from './services/feature/feature.service';
-import { OrderMailerService } from './services/order/order.mailer.service';
+import { OrderMailer } from './services/order/order.mailer.service';
 import { OrderService } from './services/order/order.service';
 import { PhotoService } from './services/photo/photo.service';
 import { UserService } from './services/user/user.service';
@@ -56,17 +56,39 @@ import { UserService } from './services/user/user.service';
         User,
         ]
     }),
-    TypeOrmModule.forFeature([Administrator,Article, ArticlePrice, ArticleFeature, CartArticle, Cart, Category, Feature, Order,Photo, User]),
+    TypeOrmModule.forFeature([
+      Administrator,
+      Article, 
+      ArticlePrice,
+      ArticleFeature,
+      CartArticle, 
+      Cart, 
+      Category, 
+      Feature, 
+      Order,
+      Photo, 
+      User
+    ]),
     MailerModule.forRoot({
-      //smtps://username:password@smtp.gmail.com
-      transport: 'smtps://'+MailConfig.username+ ':' + MailConfig.password + '@' + MailConfig.hostname,
-      defaults:{
+      transport: {
+        host: MailConfig.hostname,
+        port: 587,
+        secure: false,
+        auth: {
+          user: MailConfig.username,
+          pass: MailConfig.password,
+        },
+        tls:{
+          rejectUnauthorized:false
+        }
+      },
+      defaults: {
         from: MailConfig.senderEmail,
-      }
-    })
+      },
+    }),
   ],
   controllers: [AppController, AdministratorController, ArticleController, CategoryController, FeatureController, AuthController,UserCartController],
-  providers: [AdministratorService, ArticleService, CategoryService,CartService, FeatureService, OrderService, OrderMailerService, PhotoService, UserService],
+  providers: [AdministratorService, ArticleService, CategoryService,CartService, FeatureService, OrderService, OrderMailer, PhotoService, UserService],
   exports: [AdministratorService, UserService]
 })
 
