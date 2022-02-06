@@ -9,7 +9,6 @@ import { ApiResponse } from "src/misc/api.response.class";
 import { In, Repository } from "typeorm";
 import { EditArticleDto } from "src/dtos/article/edit.article.dto";
 import { ArticleSearchDto } from "src/dtos/article/article.search.dto";
-import { features } from "process";
 
 @Injectable()
 export class ArticleService extends TypeOrmCrudService<Article>{

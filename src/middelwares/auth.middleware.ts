@@ -2,7 +2,7 @@ import { HttpException, HttpStatus, Injectable, NestMiddleware } from "@nestjs/c
 import { NextFunction, Request, Response } from "express";
 import { AdministratorService } from "src/services/administrator/administrator.service";
 import * as jwt from "jsonwebtoken";
-import { JwtDataADto } from "src/dtos/auth/jwt.data.dto";
+import { JwtDataDto } from "src/dtos/auth/jwt.data.dto";
 import { jwtSecret } from "config/jwt.secret";
 import { UserService } from "src/services/user/user.service";
 
@@ -29,7 +29,7 @@ export class AuthMiddleware implements NestMiddleware {
 
         const tokenString = tokenParts[1];
 
-       let jwtData: JwtDataADto;
+       let jwtData: JwtDataDto;
         try {
             jwtData = jwt.verify(tokenString, jwtSecret);
         } catch(e){
