@@ -685,14 +685,14 @@
 					]
 				},
 				{
-					"name": "Get article",
+					"name": "Get  single article",
 					"request": {
 						"auth": {
 							"type": "bearer",
 							"bearer": [
 								{
 									"key": "token",
-									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhZG1pbmlzdGFydG9ySWQiOjMsInVzZXJuYW1lIjoicHBlcmljIiwiZXh0IjoxNjM1MDIwMTYzLjk0NSwiaXAiOiI6OjEiLCJ1YSI6IlBvc3RtYW5SdW50aW1lLzcuMjguNCIsImlhdCI6MTYzMzgxMDU2M30.vInyQ9B53nwkBTYF4Klkq-2xGTcxU2ksPWk-u91t5Hs",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJyb2xlIjoidXNlciIsImlkIjo0LCJpZGVudGl0eSI6Im1hbGlSYWRvamNhQHRlc3QucnMiLCJleHAiOjE2NDM0NjczMDMuMjk4LCJpcCI6Ijo6MSIsInVhIjoiUG9zdG1hblJ1bnRpbWUvNy4yOC40IiwiaWF0IjoxNjQyMjU3NzAzfQ.9cuoPtIS4YDRGfA7jZ5xOk9oEQQ_c-I-cg9sIQ6Iork",
 									"type": "string"
 								}
 							]
@@ -768,6 +768,163 @@
 							],
 							"cookie": [],
 							"body": "{\n    \"articleId\": 2,\n    \"name\": \"ACME HD11 1TB\",\n    \"categoryId\": 5,\n    \"excerpt\": \"Neki kratak tekst...\",\n    \"description\": \"Neki malo duzi tekst sa opisom proizvoda\",\n    \"status\": \"available\",\n    \"isPromoted\": 0,\n    \"createdAt\": \"2021-10-06T21:31:42.000Z\",\n    \"category\": {\n        \"categoryId\": 5,\n        \"name\": \"Hard diskovi\",\n        \"imagePath\": \"assets/pc/memory/hardDisk.jpg\",\n        \"parentCategoryId\": 4\n    },\n    \"photos\": [],\n    \"articlePrices\": [\n        {\n            \"articlePriceId\": 3,\n            \"articleId\": 2,\n            \"price\": \"56.89\",\n            \"createdAt\": \"2021-10-06T21:31:42.000Z\"\n        }\n    ],\n    \"articleFeatures\": [\n        {\n            \"articleFeatureId\": 4,\n            \"articleId\": 2,\n            \"featureId\": 1,\n            \"value\": \"1TB\"\n        },\n        {\n            \"articleFeatureId\": 5,\n            \"articleId\": 2,\n            \"featureId\": 3,\n            \"value\": \"SSD\"\n        }\n    ],\n    \"features\": [\n        {\n            \"featureId\": 1,\n            \"name\": \"Kapacitet\",\n            \"categoryId\": 5\n        },\n        {\n            \"featureId\": 3,\n            \"name\": \"Tehnologija\",\n            \"categoryId\": 5\n        }\n    ]\n}"
+						}
+					]
+				},
+				{
+					"name": "Get all articles",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJyb2xlIjoidXNlciIsImlkIjo0LCJpZGVudGl0eSI6Im1hbGlSYWRvamNhQHRlc3QucnMiLCJleHAiOjE2NDM0NjczMDMuMjk4LCJpcCI6Ijo6MSIsInVhIjoiUG9zdG1hblJ1bnRpbWUvNy4yOC40IiwiaWF0IjoxNjQyMjU3NzAzfQ.9cuoPtIS4YDRGfA7jZ5xOk9oEQQ_c-I-cg9sIQ6Iork",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3000/api/article/",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"article",
+								""
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Get all articles",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:3000/api/article/",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3000",
+									"path": [
+										"api",
+										"article",
+										""
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "2261"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"8d5-OIhfghhyXtd8ZKTuzSP/0ivqQwE\""
+								},
+								{
+									"key": "Date",
+									"value": "Sat, 15 Jan 2022 14:44:57 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "[\n    {\n        \"articleId\": 1,\n        \"name\": \"ACME HDD 512GB\",\n        \"categoryId\": 5,\n        \"excerpt\": \"Kratak opis\",\n        \"description\": \"Detaljan opis..\",\n        \"status\": \"available\",\n        \"isPromoted\": 0,\n        \"createdAt\": \"2021-09-21T18:51:52.000Z\",\n        \"category\": {\n            \"categoryId\": 5,\n            \"name\": \"Hard diskovi\",\n            \"imagePath\": \"assets/pc/memory/hardDisk.jpg\",\n            \"parentCategoryId\": 4\n        },\n        \"photos\": [],\n        \"articlePrices\": [\n            {\n                \"articlePriceId\": 1,\n                \"articleId\": 1,\n                \"price\": \"45.00\",\n                \"createdAt\": \"2021-09-21T19:32:01.000Z\"\n            },\n            {\n                \"articlePriceId\": 2,\n                \"articleId\": 1,\n                \"price\": \"43.60\",\n                \"createdAt\": \"2021-09-21T19:32:20.000Z\"\n            }\n        ],\n        \"articleFeatures\": [\n            {\n                \"articleFeatureId\": 1,\n                \"articleId\": 1,\n                \"featureId\": 1,\n                \"value\": \"512GB\"\n            },\n            {\n                \"articleFeatureId\": 2,\n                \"articleId\": 1,\n                \"featureId\": 2,\n                \"value\": \"SATA3\"\n            },\n            {\n                \"articleFeatureId\": 3,\n                \"articleId\": 1,\n                \"featureId\": 3,\n                \"value\": \"SSD\"\n            }\n        ],\n        \"features\": [\n            {\n                \"featureId\": 1,\n                \"name\": \"Kapacitet\",\n                \"categoryId\": 5\n            },\n            {\n                \"featureId\": 2,\n                \"name\": \"Tip\",\n                \"categoryId\": 5\n            },\n            {\n                \"featureId\": 3,\n                \"name\": \"Tehnologija\",\n                \"categoryId\": 5\n            }\n        ]\n    },\n    {\n        \"articleId\": 2,\n        \"name\": \"ACME HD11 1024GB\",\n        \"categoryId\": 5,\n        \"excerpt\": \"Neki kratak tekst 2...\",\n        \"description\": \"Neki malo duzi tekst o proizvodu 2\",\n        \"status\": \"visible\",\n        \"isPromoted\": 1,\n        \"createdAt\": \"2021-10-06T21:31:42.000Z\",\n        \"category\": {\n            \"categoryId\": 5,\n            \"name\": \"Hard diskovi\",\n            \"imagePath\": \"assets/pc/memory/hardDisk.jpg\",\n            \"parentCategoryId\": 4\n        },\n        \"photos\": [\n            {\n                \"photoId\": 8,\n                \"articleId\": 2,\n                \"imagePath\": \"20211014-6475993536-har-disk-slika-2.png\"\n            },\n            {\n                \"photoId\": 9,\n                \"articleId\": 2,\n                \"imagePath\": \"20211014-10015564978-har-disk-slika-2.png\"\n            }\n        ],\n        \"articlePrices\": [\n            {\n                \"articlePriceId\": 3,\n                \"articleId\": 2,\n                \"price\": \"56.89\",\n                \"createdAt\": \"2021-10-06T21:31:42.000Z\"\n            },\n            {\n                \"articlePriceId\": 4,\n                \"articleId\": 2,\n                \"price\": \"57.11\",\n                \"createdAt\": \"2021-11-22T20:21:36.000Z\"\n            }\n        ],\n        \"articleFeatures\": [\n            {\n                \"articleFeatureId\": 6,\n                \"articleId\": 2,\n                \"featureId\": 1,\n                \"value\": \"1024GB\"\n            },\n            {\n                \"articleFeatureId\": 7,\n                \"articleId\": 2,\n                \"featureId\": 2,\n                \"value\": \"SATA 3.0\"\n            }\n        ],\n        \"features\": [\n            {\n                \"featureId\": 1,\n                \"name\": \"Kapacitet\",\n                \"categoryId\": 5\n            },\n            {\n                \"featureId\": 2,\n                \"name\": \"Tip\",\n                \"categoryId\": 5\n            }\n        ]\n    },\n    {\n        \"articleId\": 3,\n        \"name\": \"HP Premuim X10\",\n        \"categoryId\": 3,\n        \"excerpt\": \"Laptop sa najboljim performansom\",\n        \"description\": \"Detaljan opis laptop racunara...\",\n        \"status\": \"available\",\n        \"isPromoted\": 0,\n        \"createdAt\": \"2022-01-08T20:32:27.000Z\",\n        \"category\": {\n            \"categoryId\": 3,\n            \"name\": \"Laptop racunari\",\n            \"imagePath\": \"assets/pc/laptop.jpg\",\n            \"parentCategoryId\": 1\n        },\n        \"photos\": [],\n        \"articlePrices\": [],\n        \"articleFeatures\": [],\n        \"features\": []\n    }\n]"
+						},
+						{
+							"name": "Get all articles by using filters for CRUD operations",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:3000/api/article/?filter=categoryId||$eq||5&sort=name,ASC",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3000",
+									"path": [
+										"api",
+										"article",
+										""
+									],
+									"query": [
+										{
+											"key": "filter",
+											"value": "categoryId||$eq||5"
+										},
+										{
+											"key": "filter",
+											"value": "articlePrices.price||$gt||200",
+											"disabled": true
+										},
+										{
+											"key": "sort",
+											"value": "name,ASC"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "1862"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"746-V5mZcg4WmIz8hRuYRjYigbLJpCs\""
+								},
+								{
+									"key": "Date",
+									"value": "Sat, 15 Jan 2022 15:17:33 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "[\n    {\n        \"articleId\": 2,\n        \"name\": \"ACME HD11 1024GB\",\n        \"categoryId\": 5,\n        \"excerpt\": \"Neki kratak tekst 2...\",\n        \"description\": \"Neki malo duzi tekst o proizvodu 2\",\n        \"status\": \"visible\",\n        \"isPromoted\": 1,\n        \"createdAt\": \"2021-10-06T21:31:42.000Z\",\n        \"category\": {\n            \"categoryId\": 5,\n            \"name\": \"Hard diskovi\",\n            \"imagePath\": \"assets/pc/memory/hardDisk.jpg\",\n            \"parentCategoryId\": 4\n        },\n        \"photos\": [\n            {\n                \"photoId\": 8,\n                \"articleId\": 2,\n                \"imagePath\": \"20211014-6475993536-har-disk-slika-2.png\"\n            },\n            {\n                \"photoId\": 9,\n                \"articleId\": 2,\n                \"imagePath\": \"20211014-10015564978-har-disk-slika-2.png\"\n            }\n        ],\n        \"articlePrices\": [\n            {\n                \"articlePriceId\": 3,\n                \"articleId\": 2,\n                \"price\": \"56.89\",\n                \"createdAt\": \"2021-10-06T21:31:42.000Z\"\n            },\n            {\n                \"articlePriceId\": 4,\n                \"articleId\": 2,\n                \"price\": \"57.11\",\n                \"createdAt\": \"2021-11-22T20:21:36.000Z\"\n            }\n        ],\n        \"articleFeatures\": [\n            {\n                \"articleFeatureId\": 6,\n                \"articleId\": 2,\n                \"featureId\": 1,\n                \"value\": \"1024GB\"\n            },\n            {\n                \"articleFeatureId\": 7,\n                \"articleId\": 2,\n                \"featureId\": 2,\n                \"value\": \"SATA 3.0\"\n            }\n        ],\n        \"features\": [\n            {\n                \"featureId\": 1,\n                \"name\": \"Kapacitet\",\n                \"categoryId\": 5\n            },\n            {\n                \"featureId\": 2,\n                \"name\": \"Tip\",\n                \"categoryId\": 5\n            }\n        ]\n    },\n    {\n        \"articleId\": 1,\n        \"name\": \"ACME HDD 512GB\",\n        \"categoryId\": 5,\n        \"excerpt\": \"Kratak opis\",\n        \"description\": \"Detaljan opis..\",\n        \"status\": \"available\",\n        \"isPromoted\": 0,\n        \"createdAt\": \"2021-09-21T18:51:52.000Z\",\n        \"category\": {\n            \"categoryId\": 5,\n            \"name\": \"Hard diskovi\",\n            \"imagePath\": \"assets/pc/memory/hardDisk.jpg\",\n            \"parentCategoryId\": 4\n        },\n        \"photos\": [],\n        \"articlePrices\": [\n            {\n                \"articlePriceId\": 1,\n                \"articleId\": 1,\n                \"price\": \"45.00\",\n                \"createdAt\": \"2021-09-21T19:32:01.000Z\"\n            },\n            {\n                \"articlePriceId\": 2,\n                \"articleId\": 1,\n                \"price\": \"43.60\",\n                \"createdAt\": \"2021-09-21T19:32:20.000Z\"\n            }\n        ],\n        \"articleFeatures\": [\n            {\n                \"articleFeatureId\": 1,\n                \"articleId\": 1,\n                \"featureId\": 1,\n                \"value\": \"512GB\"\n            },\n            {\n                \"articleFeatureId\": 2,\n                \"articleId\": 1,\n                \"featureId\": 2,\n                \"value\": \"SATA3\"\n            },\n            {\n                \"articleFeatureId\": 3,\n                \"articleId\": 1,\n                \"featureId\": 3,\n                \"value\": \"SSD\"\n            }\n        ],\n        \"features\": [\n            {\n                \"featureId\": 1,\n                \"name\": \"Kapacitet\",\n                \"categoryId\": 5\n            },\n            {\n                \"featureId\": 2,\n                \"name\": \"Tip\",\n                \"categoryId\": 5\n            },\n            {\n                \"featureId\": 3,\n                \"name\": \"Tehnologija\",\n                \"categoryId\": 5\n            }\n        ]\n    }\n]"
 						}
 					]
 				},
@@ -950,8 +1107,7 @@
 					"name": "Delete a single article photo",
 					"request": {
 						"method": "DELETE",
-						"header": [],
-						"url": null
+						"header": []
 					},
 					"response": [
 						{
@@ -1107,8 +1263,123 @@
 							"body": "{\n    \"articleId\": 2,\n    \"name\": \"ACME HD11 1024GB\",\n    \"categoryId\": 5,\n    \"excerpt\": \"Neki kratak tekst 2...\",\n    \"description\": \"Neki malo duzi tekst o proizvodu 2\",\n    \"status\": \"visible\",\n    \"isPromoted\": 1,\n    \"createdAt\": \"2021-10-06T21:31:42.000Z\",\n    \"category\": {\n        \"categoryId\": 5,\n        \"name\": \"Hard diskovi\",\n        \"imagePath\": \"assets/pc/memory/hardDisk.jpg\",\n        \"parentCategoryId\": 4\n    },\n    \"articleFeatures\": [],\n    \"features\": [],\n    \"articlePrices\": [\n        {\n            \"articlePriceId\": 3,\n            \"articleId\": 2,\n            \"price\": \"56.89\",\n            \"createdAt\": \"2021-10-06T21:31:42.000Z\"\n        },\n        {\n            \"articlePriceId\": 4,\n            \"articleId\": 2,\n            \"price\": \"57.11\",\n            \"createdAt\": \"2021-11-22T20:21:36.000Z\"\n        }\n    ]\n}"
 						}
 					]
+				},
+				{
+					"name": "Search Articles with keywords and filters",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJyb2xlIjoidXNlciIsImlkIjo0LCJpZGVudGl0eSI6Im1hbGlSYWRvamNhQHRlc3QucnMiLCJleHAiOjE2NDM1NjEwNjUuNDY0LCJpcCI6Ijo6MSIsInVhIjoiUG9zdG1hblJ1bnRpbWUvNy4yOS4wIiwiaWF0IjoxNjQyMzUxNDY1fQ.fN-SjBuKOnr4JlsubdxDSmfEJPHBgmm019VgAnsm9Q8",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"categoryId\": 5,\r\n    \"keywords\": \"GB\",\r\n    \"priceMin\": 43,\r\n    \"priceMax\":59,\r\n    \"features\":[\r\n        {\r\n        \"featureId\": 2,\r\n        \"values\":[\r\n            \"SATA 3.0\", \"SATA 3.1\"\r\n        ]\r\n        }\r\n    ],\r\n    \"orderBy\": \"price\",\r\n    \"orderDirection\": \"DESC\"\r\n}\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/api/article/search",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"article",
+								"search"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Search Articles",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"categoryId\": 5,\r\n    \"keywords\": \"GB\",\r\n    \"priceMin\": 43,\r\n    \"priceMax\":59,\r\n    \"features\":[\r\n        {\r\n        \"featureId\": 2,\r\n        \"values\":[\r\n            \"SATA 3.0\", \"SATA 3.1\"\r\n        ]\r\n        }\r\n    ],\r\n    \"orderBy\": \"price\",\r\n    \"orderDirection\": \"DESC\"\r\n}\r\n",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:3000/api/article/search",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3000",
+									"path": [
+										"api",
+										"article",
+										"search"
+									]
+								}
+							},
+							"status": "Created",
+							"code": 201,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "1865"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"749-c3Y7nkEk5TDV0JC5QUHJ0yJiYXc\""
+								},
+								{
+									"key": "Date",
+									"value": "Sun, 16 Jan 2022 17:54:41 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "[\n    {\n        \"articleId\": 2,\n        \"name\": \"ACME HD11 1024GB\",\n        \"categoryId\": 5,\n        \"excerpt\": \"Neki kratak tekst 2...\",\n        \"description\": \"Neki malo duzi tekst o proizvodu 2\",\n        \"status\": \"visible\",\n        \"isPromoted\": 1,\n        \"createdAt\": \"2021-10-06T21:31:42.000Z\",\n        \"category\": {\n            \"categoryId\": 5,\n            \"name\": \"Hard diskovi\",\n            \"imagePath\": \"assets/pc/memory/hardDisk.jpg\",\n            \"parentCategoryId\": 4\n        },\n        \"articleFeatures\": [\n            {\n                \"articleFeatureId\": 6,\n                \"articleId\": 2,\n                \"featureId\": 1,\n                \"value\": \"1024GB\"\n            },\n            {\n                \"articleFeatureId\": 7,\n                \"articleId\": 2,\n                \"featureId\": 2,\n                \"value\": \"SATA 3.0\"\n            }\n        ],\n        \"features\": [\n            {\n                \"featureId\": 1,\n                \"name\": \"Kapacitet\",\n                \"categoryId\": 5\n            },\n            {\n                \"featureId\": 2,\n                \"name\": \"Tip\",\n                \"categoryId\": 5\n            }\n        ],\n        \"articlePrices\": [\n            {\n                \"articlePriceId\": 3,\n                \"articleId\": 2,\n                \"price\": \"56.89\",\n                \"createdAt\": \"2021-10-06T21:31:42.000Z\"\n            },\n            {\n                \"articlePriceId\": 4,\n                \"articleId\": 2,\n                \"price\": \"57.11\",\n                \"createdAt\": \"2021-11-22T20:21:36.000Z\"\n            }\n        ],\n        \"photos\": [\n            {\n                \"photoId\": 8,\n                \"articleId\": 2,\n                \"imagePath\": \"20211014-6475993536-har-disk-slika-2.png\"\n            },\n            {\n                \"photoId\": 9,\n                \"articleId\": 2,\n                \"imagePath\": \"20211014-10015564978-har-disk-slika-2.png\"\n            }\n        ]\n    },\n    {\n        \"articleId\": 1,\n        \"name\": \"ACME HDD 512GB\",\n        \"categoryId\": 5,\n        \"excerpt\": \"Kratak opis\",\n        \"description\": \"Detaljan opis..\",\n        \"status\": \"available\",\n        \"isPromoted\": 0,\n        \"createdAt\": \"2021-09-21T18:51:52.000Z\",\n        \"category\": {\n            \"categoryId\": 5,\n            \"name\": \"Hard diskovi\",\n            \"imagePath\": \"assets/pc/memory/hardDisk.jpg\",\n            \"parentCategoryId\": 4\n        },\n        \"articleFeatures\": [\n            {\n                \"articleFeatureId\": 1,\n                \"articleId\": 1,\n                \"featureId\": 1,\n                \"value\": \"512GB\"\n            },\n            {\n                \"articleFeatureId\": 2,\n                \"articleId\": 1,\n                \"featureId\": 2,\n                \"value\": \"SATA 3.0\"\n            },\n            {\n                \"articleFeatureId\": 3,\n                \"articleId\": 1,\n                \"featureId\": 3,\n                \"value\": \"SSD\"\n            }\n        ],\n        \"features\": [\n            {\n                \"featureId\": 1,\n                \"name\": \"Kapacitet\",\n                \"categoryId\": 5\n            },\n            {\n                \"featureId\": 2,\n                \"name\": \"Tip\",\n                \"categoryId\": 5\n            },\n            {\n                \"featureId\": 3,\n                \"name\": \"Tehnologija\",\n                \"categoryId\": 5\n            }\n        ],\n        \"articlePrices\": [\n            {\n                \"articlePriceId\": 1,\n                \"articleId\": 1,\n                \"price\": \"45.00\",\n                \"createdAt\": \"2021-09-21T19:32:01.000Z\"\n            },\n            {\n                \"articlePriceId\": 2,\n                \"articleId\": 1,\n                \"price\": \"43.60\",\n                \"createdAt\": \"2021-09-21T19:32:20.000Z\"\n            }\n        ],\n        \"photos\": []\n    }\n]"
+						}
+					]
 				}
 			],
+			"auth": {
+				"type": "bearer",
+				"bearer": [
+					{
+						"key": "token",
+						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJyb2xlIjoidXNlciIsImlkIjo4LCJpZGVudGl0eSI6InZlemJhY2luaWNvdmVrQGdtYWlsLmNvbSIsImV4cCI6MTY0Njc5MDQ2OC40MzIsImlwIjoiOjoxIiwidWEiOiJQb3N0bWFuUnVudGltZS83LjI5LjAiLCJpYXQiOjE2NDQxMTIwNjh9.mDtVDz84mLSSEF87L-LSTxWjqwk4F21ym6JJ5mHXEwM",
+						"type": "string"
+					}
+				]
+			},
 			"event": [
 				{
 					"listen": "prerequest",
@@ -1364,7 +1635,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"email\": \"test@test.rs\",\r\n    \"password\": \"abc\",\r\n    \"forename\": \"Perica\",\r\n    \"surname\": \"Pericic\",\r\n    \"phoneNumber\": \"+381641234567\",\r\n    \"postalAddress\": \"Nepoznata adresa bb, Glavna luka, Nedodjija\"\r\n}",
+							"raw": "{\r\n    \"email\": \"vezbacinicovek@gmail.com\",\r\n    \"password\": \"TajnaLozinka\",\r\n    \"forename\": \"Antonije\",\r\n    \"surname\": \"Pusic\",\r\n    \"phoneNumber\": \"+381643421789\",\r\n    \"postalAddress\": \"Nepoznata adresa bb, Glavna luka, Nedodjija\"\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -1523,7 +1794,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"email\": \"test@test.rs\",\r\n    \"password\": \"abc\"\r\n}",
+							"raw": "{\r\n    \"email\": \"vezbacinicovek@gmail.com\",\r\n    \"password\": \"TajnaLozinka\"\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -1546,13 +1817,13 @@
 					},
 					"response": [
 						{
-							"name": "User Login success",
+							"name": "User Login",
 							"originalRequest": {
 								"method": "POST",
 								"header": [],
 								"body": {
 									"mode": "raw",
-									"raw": "{\r\n    \"email\": \"test@test.rs\",\r\n    \"password\": \"abc\"\r\n}",
+									"raw": "{\r\n    \"email\": \"vezbacinicovek@gmail.com\",\r\n    \"password\": \"TajnaLozinka\"\r\n}",
 									"options": {
 										"raw": {
 											"language": "json"
@@ -1582,20 +1853,24 @@
 									"value": "Express"
 								},
 								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
 									"key": "Content-Type",
 									"value": "application/json; charset=utf-8"
 								},
 								{
 									"key": "Content-Length",
-									"value": "294"
+									"value": "656"
 								},
 								{
 									"key": "ETag",
-									"value": "W/\"126-xt0ho87D08zagXAVQ4BmLF8IdWo\""
+									"value": "W/\"290-OfEav15ZspPq8vVTowzWonmFErE\""
 								},
 								{
 									"key": "Date",
-									"value": "Sat, 27 Nov 2021 23:21:25 GMT"
+									"value": "Fri, 25 Feb 2022 18:32:35 GMT"
 								},
 								{
 									"key": "Connection",
@@ -1607,7 +1882,102 @@
 								}
 							],
 							"cookie": [],
-							"body": "{\n    \"id\": 3,\n    \"identity\": \"test@test.rs\",\n    \"token\": \"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJyb2xlIjoidXNlciIsImlkIjozLCJpZGVudGl0eSI6InRlc3RAdGVzdC5ycyIsImV4cCI6MTYzOTI2NDg4NS4zMzUsImlwIjoiOjoxIiwidWEiOiJQb3N0bWFuUnVudGltZS83LjI4LjQiLCJpYXQiOjE2MzgwNTUyODV9.c07-hP8hAEER-Qcy1CYnKEgP0tG2jTAHqhXOepTU6L8\"\n}"
+							"body": "{\n    \"id\": 8,\n    \"identity\": \"vezbacinicovek@gmail.com\",\n    \"token\": \"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJyb2xlIjoidXNlciIsImlkIjo4LCJpZGVudGl0eSI6InZlemJhY2luaWNvdmVrQGdtYWlsLmNvbSIsImV4cCI6MTY0NTgxNDI1NS4wMzcsImlwIjoiOjoxIiwidWEiOiJQb3N0bWFuUnVudGltZS83LjI5LjAiLCJpYXQiOjE2NDU4MTM5NTV9.Il2-M1oEAMWsuo38i7X8ZCZCQc7qne_-YLDXMbRVDrc\",\n    \"refreshToken\": \"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJyb2xlIjoidXNlciIsImlkIjo4LCJpZGVudGl0eSI6InZlemJhY2luaWNvdmVrQGdtYWlsLmNvbSIsImV4cCI6MTY0ODQ5MjM1NS4wNDUsImlwIjoiOjoxIiwidWEiOiJQb3N0bWFuUnVudGltZS83LjI5LjAiLCJpYXQiOjE2NDU4MTM5NTV9.EmKgN-YK5DHlx0VUHdjJmxIckHgHgqoH2Qy1oYYf-Z4\",\n    \"refreshTokenExpiresAt\": \"2022-03-28T18:32:35.045Z\"\n}"
+						}
+					]
+				},
+				{
+					"name": "Refresh User Token",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"token\": \"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJyb2xlIjoidXNlciIsImlkIjo4LCJpZGVudGl0eSI6InZlemJhY2luaWNvdmVrQGdtYWlsLmNvbSIsImV4cCI6MTY0Njc5MDQ2OC40MzIsImlwIjoiOjoxIiwidWEiOiJQb3N0bWFuUnVudGltZS83LjI5LjAiLCJpYXQiOjE2NDQxMTIwNjh9.mDtVDz84mLSSEF87L-LSTxWjqwk4F21ym6JJ5mHXEwM\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/auth/user/refresh",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"auth",
+								"user",
+								"refresh"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Refresh User Token Success",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"token\": \"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJyb2xlIjoidXNlciIsImlkIjo4LCJpZGVudGl0eSI6InZlemJhY2luaWNvdmVrQGdtYWlsLmNvbSIsImV4cCI6MTY0Njc3OTg3Ni45NjksImlwIjoiOjoxIiwidWEiOiJQb3N0bWFuUnVudGltZS83LjI5LjAiLCJpYXQiOjE2NDQxMDE0NzZ9.1quKcDfuqa-knkY5c3Rbp6vBTkAzdbkWchHam2DYfdQ\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:3000/auth/user/refresh",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3000",
+									"path": [
+										"auth",
+										"user",
+										"refresh"
+									]
+								}
+							},
+							"status": "Created",
+							"code": 201,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "656"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"290-TRBZOJlWkDOcsT2l5RUZIOVPN/I\""
+								},
+								{
+									"key": "Date",
+									"value": "Sun, 06 Feb 2022 01:43:07 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"id\": 8,\n    \"identity\": \"vezbacinicovek@gmail.com\",\n    \"token\": \"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJyb2xlIjoidXNlciIsImlkIjo4LCJpZGVudGl0eSI6InZlemJhY2luaWNvdmVrQGdtYWlsLmNvbSIsImV4cCI6MTY0NDExMjA4Ny44MjYsImlwIjoiOjoxIiwidWEiOiJQb3N0bWFuUnVudGltZS83LjI5LjAiLCJpYXQiOjE2NDQxMTE3ODd9.bYDUf99nDtCdR2VKOUQ_iCAdKW3p0LgOCvJypFPgtXo\",\n    \"refreshToken\": \"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJyb2xlIjoidXNlciIsImlkIjo4LCJpZGVudGl0eSI6InZlemJhY2luaWNvdmVrQGdtYWlsLmNvbSIsImV4cCI6MTY0Njc3OTg3Ni45NjksImlwIjoiOjoxIiwidWEiOiJQb3N0bWFuUnVudGltZS83LjI5LjAiLCJpYXQiOjE2NDQxMDE0NzZ9.1quKcDfuqa-knkY5c3Rbp6vBTkAzdbkWchHam2DYfdQ\",\n    \"refreshTokenExpiresAt\": \"2022-03-08T22:51:16.969Z\"\n}"
 						}
 					]
 				}
@@ -1720,8 +2090,7 @@
 					"name": "Get a single feature",
 					"request": {
 						"method": "GET",
-						"header": [],
-						"url": null
+						"header": []
 					},
 					"response": [
 						{
@@ -1785,8 +2154,7 @@
 					"name": "Add a new feature",
 					"request": {
 						"method": "POST",
-						"header": [],
-						"url": null
+						"header": []
 					},
 					"response": [
 						{
@@ -1858,8 +2226,7 @@
 					"name": "Edit a single feature",
 					"request": {
 						"method": "PATCH",
-						"header": [],
-						"url": null
+						"header": []
 					},
 					"response": [
 						{
@@ -1929,6 +2296,628 @@
 					]
 				}
 			]
+		},
+		{
+			"name": "Cart and Order",
+			"item": [
+				{
+					"name": "Get current cart details",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJyb2xlIjoidXNlciIsImlkIjozLCJpZGVudGl0eSI6InRlc3RAdGVzdC5ycyIsImV4cCI6MTYzOTI2NDg4NS4zMzUsImlwIjoiOjoxIiwidWEiOiJQb3N0bWFuUnVudGltZS83LjI4LjQiLCJpYXQiOjE2MzgwNTUyODV9.c07-hP8hAEER-Qcy1CYnKEgP0tG2jTAHqhXOepTU6L8",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3000/api/user/cart",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"user",
+								"cart"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Get current cart details",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:3000/api/user/cart",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3000",
+									"path": [
+										"api",
+										"user",
+										"cart"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "401"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"191-3qQ/IBvyzHZ939xulj6b+X41XaY\""
+								},
+								{
+									"key": "Date",
+									"value": "Sat, 08 Jan 2022 00:05:36 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"cartId\": 1,\n    \"userId\": 3,\n    \"createdAt\": \"2022-01-08T00:03:50.000Z\",\n    \"user\": {\n        \"userId\": 3,\n        \"email\": \"test@test.rs\",\n        \"passwordHash\": \"DDAF35A193617ABACC417349AE20413112E6FA4E89A97EA20A9EEEE64B55D39A2192992A274FC1A836BA3C23A3FEEBBD454D4423643CE80E2A9AC94FA54CA49F\",\n        \"forename\": \"Perica\",\n        \"surname\": \"Pericic\",\n        \"phoneNumber\": \"+381641234567\",\n        \"postalAddress\": \"Nepoznata adresa bb, Glavna luka, Nedodjija\"\n    },\n    \"cartArticles\": []\n}"
+						}
+					]
+				},
+				{
+					"name": "Add article to the current cart",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"articleId\": 1,\r\n    \"quantity\": 1\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/api/user/cart/addToCart",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"user",
+								"cart",
+								"addToCart"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Add article to the current cart",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"articleId\": 1,\r\n    \"quantity\": 1\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:3000/api/user/cart/addToCart",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3000",
+									"path": [
+										"api",
+										"user",
+										"cart",
+										"addToCart"
+									]
+								}
+							},
+							"status": "Created",
+							"code": 201,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "769"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"301-VlA90T9k+xJh6b1yXo1CGoAGk6Y\""
+								},
+								{
+									"key": "Date",
+									"value": "Sat, 08 Jan 2022 00:18:19 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"cartId\": 1,\n    \"userId\": 3,\n    \"createdAt\": \"2022-01-08T00:03:50.000Z\",\n    \"user\": {\n        \"userId\": 3,\n        \"email\": \"test@test.rs\",\n        \"passwordHash\": \"DDAF35A193617ABACC417349AE20413112E6FA4E89A97EA20A9EEEE64B55D39A2192992A274FC1A836BA3C23A3FEEBBD454D4423643CE80E2A9AC94FA54CA49F\",\n        \"forename\": \"Perica\",\n        \"surname\": \"Pericic\",\n        \"phoneNumber\": \"+381641234567\",\n        \"postalAddress\": \"Nepoznata adresa bb, Glavna luka, Nedodjija\"\n    },\n    \"cartArticles\": [\n        {\n            \"cartArticleId\": 1,\n            \"cartId\": 1,\n            \"articleId\": 1,\n            \"quantity\": 3,\n            \"article\": {\n                \"articleId\": 1,\n                \"name\": \"ACME HDD 512GB\",\n                \"categoryId\": 5,\n                \"excerpt\": \"Kratak opis\",\n                \"description\": \"Detaljan opis..\",\n                \"status\": \"available\",\n                \"isPromoted\": 0,\n                \"createdAt\": \"2021-09-21T18:51:52.000Z\",\n                \"category\": {\n                    \"categoryId\": 5,\n                    \"name\": \"Hard diskovi\",\n                    \"imagePath\": \"assets/pc/memory/hardDisk.jpg\",\n                    \"parentCategoryId\": 4\n                }\n            }\n        }\n    ]\n}"
+						}
+					]
+				},
+				{
+					"name": "Edit article quanity in cart",
+					"request": {
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"articleId\": 3,\r\n    \"quantity\": 0\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/api/user/cart/",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"user",
+								"cart",
+								""
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Edit article quantity",
+							"originalRequest": {
+								"method": "PATCH",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"articleId\": 3,\r\n    \"quantity\": 0\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:3000/api/user/cart/",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3000",
+									"path": [
+										"api",
+										"user",
+										"cart",
+										""
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "1168"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"490-hyvh5Lmv5uO67gmg1JFXyn5vC58\""
+								},
+								{
+									"key": "Date",
+									"value": "Tue, 11 Jan 2022 15:32:19 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"cartId\": 1,\n    \"userId\": 3,\n    \"createdAt\": \"2022-01-08T00:03:50.000Z\",\n    \"user\": {\n        \"userId\": 3,\n        \"email\": \"test@test.rs\",\n        \"passwordHash\": \"DDAF35A193617ABACC417349AE20413112E6FA4E89A97EA20A9EEEE64B55D39A2192992A274FC1A836BA3C23A3FEEBBD454D4423643CE80E2A9AC94FA54CA49F\",\n        \"forename\": \"Perica\",\n        \"surname\": \"Pericic\",\n        \"phoneNumber\": \"+381641234567\",\n        \"postalAddress\": \"Nepoznata adresa bb, Glavna luka, Nedodjija\"\n    },\n    \"cartArticles\": [\n        {\n            \"cartArticleId\": 1,\n            \"cartId\": 1,\n            \"articleId\": 1,\n            \"quantity\": 7,\n            \"article\": {\n                \"articleId\": 1,\n                \"name\": \"ACME HDD 512GB\",\n                \"categoryId\": 5,\n                \"excerpt\": \"Kratak opis\",\n                \"description\": \"Detaljan opis..\",\n                \"status\": \"available\",\n                \"isPromoted\": 0,\n                \"createdAt\": \"2021-09-21T18:51:52.000Z\",\n                \"category\": {\n                    \"categoryId\": 5,\n                    \"name\": \"Hard diskovi\",\n                    \"imagePath\": \"assets/pc/memory/hardDisk.jpg\",\n                    \"parentCategoryId\": 4\n                }\n            }\n        },\n        {\n            \"cartArticleId\": 3,\n            \"cartId\": 1,\n            \"articleId\": 2,\n            \"quantity\": 1,\n            \"article\": {\n                \"articleId\": 2,\n                \"name\": \"ACME HD11 1024GB\",\n                \"categoryId\": 5,\n                \"excerpt\": \"Neki kratak tekst 2...\",\n                \"description\": \"Neki malo duzi tekst o proizvodu 2\",\n                \"status\": \"visible\",\n                \"isPromoted\": 1,\n                \"createdAt\": \"2021-10-06T21:31:42.000Z\",\n                \"category\": {\n                    \"categoryId\": 5,\n                    \"name\": \"Hard diskovi\",\n                    \"imagePath\": \"assets/pc/memory/hardDisk.jpg\",\n                    \"parentCategoryId\": 4\n                }\n            }\n        }\n    ]\n}"
+						}
+					]
+				},
+				{
+					"name": "Make an order for the current cart",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3000/api/user/cart/makeOrder",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"user",
+								"cart",
+								"makeOrder"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Make an order for the current cart",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:3000/api/user/cart/makeOrder",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3000",
+									"path": [
+										"api",
+										"user",
+										"cart",
+										"makeOrder"
+									]
+								}
+							},
+							"status": "Created",
+							"code": 201,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "1088"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"440-R+WVC66BZ8j0uac2uvMMysZVt74\""
+								},
+								{
+									"key": "Date",
+									"value": "Tue, 11 Jan 2022 17:30:19 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"orderId\": 3,\n    \"createdAt\": \"2022-01-11T17:30:19.000Z\",\n    \"cartId\": 3,\n    \"status\": \"pending\",\n    \"cart\": {\n        \"cartId\": 3,\n        \"userId\": 3,\n        \"createdAt\": \"2022-01-11T17:26:13.000Z\",\n        \"user\": {\n            \"userId\": 3,\n            \"email\": \"test@test.rs\",\n            \"passwordHash\": \"DDAF35A193617ABACC417349AE20413112E6FA4E89A97EA20A9EEEE64B55D39A2192992A274FC1A836BA3C23A3FEEBBD454D4423643CE80E2A9AC94FA54CA49F\",\n            \"forename\": \"Perica\",\n            \"surname\": \"Pericic\",\n            \"phoneNumber\": \"+381641234567\",\n            \"postalAddress\": \"Nepoznata adresa bb, Glavna luka, Nedodjija\"\n        },\n        \"cartArticles\": [\n            {\n                \"cartArticleId\": 10,\n                \"cartId\": 3,\n                \"articleId\": 2,\n                \"quantity\": 5,\n                \"article\": {\n                    \"articleId\": 2,\n                    \"name\": \"ACME HD11 1024GB\",\n                    \"categoryId\": 5,\n                    \"excerpt\": \"Neki kratak tekst 2...\",\n                    \"description\": \"Neki malo duzi tekst o proizvodu 2\",\n                    \"status\": \"visible\",\n                    \"isPromoted\": 1,\n                    \"createdAt\": \"2021-10-06T21:31:42.000Z\",\n                    \"category\": {\n                        \"categoryId\": 5,\n                        \"name\": \"Hard diskovi\",\n                        \"imagePath\": \"assets/pc/memory/hardDisk.jpg\",\n                        \"parentCategoryId\": 4\n                    },\n                    \"articlePrices\": [\n                        {\n                            \"articlePriceId\": 3,\n                            \"articleId\": 2,\n                            \"price\": \"56.89\",\n                            \"createdAt\": \"2021-10-06T21:31:42.000Z\"\n                        },\n                        {\n                            \"articlePriceId\": 4,\n                            \"articleId\": 2,\n                            \"price\": \"57.11\",\n                            \"createdAt\": \"2021-11-22T20:21:36.000Z\"\n                        }\n                    ]\n                }\n            }\n        ]\n    }\n}"
+						}
+					]
+				}
+			],
+			"auth": {
+				"type": "bearer",
+				"bearer": [
+					{
+						"key": "token",
+						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJyb2xlIjoidXNlciIsImlkIjo4LCJpZGVudGl0eSI6InZlemJhY2luaWNvdmVrQGdtYWlsLmNvbSIsImV4cCI6MTY0NDExMTExNi44OCwiaXAiOiI6OjEiLCJ1YSI6IlBvc3RtYW5SdW50aW1lLzcuMjkuMCIsImlhdCI6MTY0NDExMDgxNn0.Z8z4KR-1MHrSfd4Z3c7XZtvly8-eUXELsV2-ua4mDRM",
+						"type": "string"
+					}
+				]
+			},
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				}
+			]
+		},
+		{
+			"name": "Order",
+			"item": [
+				{
+					"name": "Get order information",
+					"request": {
+						"method": "GET",
+						"header": []
+					},
+					"response": [
+						{
+							"name": "Get order information successfull",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:3000/api/order/91",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3000",
+									"path": [
+										"api",
+										"order",
+										"91"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "1075"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"433-ta4I+6zx+cjVH3yWcfemm3aHazM\""
+								},
+								{
+									"key": "Date",
+									"value": "Mon, 24 Jan 2022 00:08:50 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"orderId\": 91,\n    \"createdAt\": \"2022-01-23T00:22:59.000Z\",\n    \"cartId\": 92,\n    \"status\": \"pending\",\n    \"cart\": {\n        \"cartId\": 92,\n        \"userId\": 8,\n        \"createdAt\": \"2022-01-23T00:22:32.000Z\",\n        \"user\": {\n            \"userId\": 8,\n            \"email\": \"vezbacinicovek@gmail.com\",\n            \"passwordHash\": \"5F70A029A00637134E617C0750131E82CAF263E5913A87771448E9B2A5F2172F15C406787F837C9A1D821F43DE4042E3DD07B03BEB5F60730F509F0831F8F383\",\n            \"forename\": \"Antonije\",\n            \"surname\": \"Pusic\",\n            \"phoneNumber\": \"+381643421789\",\n            \"postalAddress\": \"Nepoznata adresa bb, Glavna luka, Nedodjija\"\n        },\n        \"cartArticles\": [\n            {\n                \"cartArticleId\": 112,\n                \"cartId\": 92,\n                \"articleId\": 1,\n                \"quantity\": 2,\n                \"article\": {\n                    \"articleId\": 1,\n                    \"name\": \"ACME HDD 512GB\",\n                    \"categoryId\": 5,\n                    \"excerpt\": \"Kratak opis\",\n                    \"description\": \"Detaljan opis..\",\n                    \"status\": \"available\",\n                    \"isPromoted\": 0,\n                    \"createdAt\": \"2021-09-21T18:51:52.000Z\",\n                    \"category\": {\n                        \"categoryId\": 5,\n                        \"name\": \"Hard diskovi\",\n                        \"imagePath\": \"assets/pc/memory/hardDisk.jpg\",\n                        \"parentCategoryId\": 4\n                    },\n                    \"articlePrices\": [\n                        {\n                            \"articlePriceId\": 1,\n                            \"articleId\": 1,\n                            \"price\": \"45.00\",\n                            \"createdAt\": \"2021-09-21T19:32:01.000Z\"\n                        },\n                        {\n                            \"articlePriceId\": 2,\n                            \"articleId\": 1,\n                            \"price\": \"43.60\",\n                            \"createdAt\": \"2021-09-21T19:32:20.000Z\"\n                        }\n                    ]\n                }\n            }\n        ]\n    }\n}"
+						},
+						{
+							"name": "Get order information failed - not existing oreder",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:3000/api/order/102",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3000",
+									"path": [
+										"api",
+										"order",
+										"102"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "70"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"46-zQreLLvU6NgF50ayOzJLv2meF5c\""
+								},
+								{
+									"key": "Date",
+									"value": "Mon, 24 Jan 2022 00:09:56 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"status\": \"error\",\n    \"statusCode\": -9001,\n    \"message\": \"No such order found!\"\n}"
+						}
+					]
+				},
+				{
+					"name": "Change Order Status",
+					"request": {
+						"method": "GET",
+						"header": []
+					},
+					"response": [
+						{
+							"name": "Change Order Status",
+							"originalRequest": {
+								"method": "PATCH",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"newStatus\": \"accepted\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:3000/api/order/94",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3000",
+									"path": [
+										"api",
+										"order",
+										"94"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "1676"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"68c-DBvqDqJ4hg3W93yVhOTq37ltSek\""
+								},
+								{
+									"key": "Date",
+									"value": "Mon, 24 Jan 2022 00:14:38 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"orderId\": 94,\n    \"createdAt\": \"2022-01-23T17:15:08.000Z\",\n    \"cartId\": 95,\n    \"status\": \"accepted\",\n    \"cart\": {\n        \"cartId\": 95,\n        \"userId\": 8,\n        \"createdAt\": \"2022-01-23T17:14:35.000Z\",\n        \"user\": {\n            \"userId\": 8,\n            \"email\": \"vezbacinicovek@gmail.com\",\n            \"passwordHash\": \"5F70A029A00637134E617C0750131E82CAF263E5913A87771448E9B2A5F2172F15C406787F837C9A1D821F43DE4042E3DD07B03BEB5F60730F509F0831F8F383\",\n            \"forename\": \"Antonije\",\n            \"surname\": \"Pusic\",\n            \"phoneNumber\": \"+381643421789\",\n            \"postalAddress\": \"Nepoznata adresa bb, Glavna luka, Nedodjija\"\n        },\n        \"cartArticles\": [\n            {\n                \"cartArticleId\": 116,\n                \"cartId\": 95,\n                \"articleId\": 1,\n                \"quantity\": 1,\n                \"article\": {\n                    \"articleId\": 1,\n                    \"name\": \"ACME HDD 512GB\",\n                    \"categoryId\": 5,\n                    \"excerpt\": \"Kratak opis\",\n                    \"description\": \"Detaljan opis..\",\n                    \"status\": \"available\",\n                    \"isPromoted\": 0,\n                    \"createdAt\": \"2021-09-21T18:51:52.000Z\",\n                    \"category\": {\n                        \"categoryId\": 5,\n                        \"name\": \"Hard diskovi\",\n                        \"imagePath\": \"assets/pc/memory/hardDisk.jpg\",\n                        \"parentCategoryId\": 4\n                    },\n                    \"articlePrices\": [\n                        {\n                            \"articlePriceId\": 1,\n                            \"articleId\": 1,\n                            \"price\": \"45.00\",\n                            \"createdAt\": \"2021-09-21T19:32:01.000Z\"\n                        },\n                        {\n                            \"articlePriceId\": 2,\n                            \"articleId\": 1,\n                            \"price\": \"43.60\",\n                            \"createdAt\": \"2021-09-21T19:32:20.000Z\"\n                        }\n                    ]\n                }\n            },\n            {\n                \"cartArticleId\": 117,\n                \"cartId\": 95,\n                \"articleId\": 2,\n                \"quantity\": 1,\n                \"article\": {\n                    \"articleId\": 2,\n                    \"name\": \"ACME HD11 1024GB\",\n                    \"categoryId\": 5,\n                    \"excerpt\": \"Neki kratak tekst 2...\",\n                    \"description\": \"Neki malo duzi tekst o proizvodu 2\",\n                    \"status\": \"visible\",\n                    \"isPromoted\": 1,\n                    \"createdAt\": \"2021-10-06T21:31:42.000Z\",\n                    \"category\": {\n                        \"categoryId\": 5,\n                        \"name\": \"Hard diskovi\",\n                        \"imagePath\": \"assets/pc/memory/hardDisk.jpg\",\n                        \"parentCategoryId\": 4\n                    },\n                    \"articlePrices\": [\n                        {\n                            \"articlePriceId\": 3,\n                            \"articleId\": 2,\n                            \"price\": \"56.89\",\n                            \"createdAt\": \"2021-10-06T21:31:42.000Z\"\n                        },\n                        {\n                            \"articlePriceId\": 4,\n                            \"articleId\": 2,\n                            \"price\": \"57.11\",\n                            \"createdAt\": \"2021-11-22T20:21:36.000Z\"\n                        }\n                    ]\n                }\n            }\n        ]\n    }\n}"
+						}
+					]
+				}
+			],
+			"auth": {
+				"type": "bearer",
+				"bearer": [
+					{
+						"key": "token",
+						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJyb2xlIjoiYWRtaW5pc3RyYXRvciIsImlkIjozLCJpZGVudGl0eSI6InBwZXJpYyIsImV4cCI6MTY0NDE5MjM5Mi4xOTgsImlwIjoiOjoxIiwidWEiOiJQb3N0bWFuUnVudGltZS83LjI5LjAiLCJpYXQiOjE2NDI5ODI3OTJ9.UjWrD6V0AusU393jioZDl-1YuzkjcfAZP__KCYI1eAs",
+						"type": "string"
+					}
+				]
+			},
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				}
+			]
 		}
 	],
 	"auth": {
@@ -1936,7 +2925,7 @@
 		"bearer": [
 			{
 				"key": "token",
-				"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJyb2xlIjoiYWRtaW5pc3RyYXRvciIsImlkIjozLCJpZGVudGl0eSI6InBwZXJpYyIsImV4cCI6MTYzOTI2NDM1NS42NSwiaXAiOiI6OjEiLCJ1YSI6IlBvc3RtYW5SdW50aW1lLzcuMjguNCIsImlhdCI6MTYzODA1NDc1NX0.1K5_KYm5N_Sn477ow7ue8MRbJ6tRqrqPv4dWJWQMwRo",
+				"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJyb2xlIjoiYWRtaW5pc3RyYXRvciIsImlkIjozLCJpZGVudGl0eSI6InBwZXJpYyIsImV4cCI6MTY0Mjg4NDM3Mi4wNDQsImlwIjoiOjoxIiwidWEiOiJQb3N0bWFuUnVudGltZS83LjI4LjQiLCJpYXQiOjE2NDE2NzQ3NzJ9.O2JP_NCdxYcszQfjZXBt1YR_7jdBi2bZnhI0cLNtMpY",
 				"type": "string"
 			}
 		]
