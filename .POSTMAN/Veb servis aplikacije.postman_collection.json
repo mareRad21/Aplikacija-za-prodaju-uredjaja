@@ -1375,7 +1375,7 @@
 				"bearer": [
 					{
 						"key": "token",
-						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJyb2xlIjoidXNlciIsImlkIjo4LCJpZGVudGl0eSI6InZlemJhY2luaWNvdmVrQGdtYWlsLmNvbSIsImV4cCI6MTY0Njc5MDQ2OC40MzIsImlwIjoiOjoxIiwidWEiOiJQb3N0bWFuUnVudGltZS83LjI5LjAiLCJpYXQiOjE2NDQxMTIwNjh9.mDtVDz84mLSSEF87L-LSTxWjqwk4F21ym6JJ5mHXEwM",
+						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJyb2xlIjoidXNlciIsImlkIjo4LCJpZGVudGl0eSI6InZlemJhY2luaWNvdmVrQGdtYWlsLmNvbSIsImV4cCI6MTY1MTUwOTc3OC41ODEsImlwIjoiOjoxIiwidWEiOiJQb3N0bWFuUnVudGltZS83LjI5LjAiLCJpYXQiOjE2NDg4MzEzNzh9.tV5VN9iofdLMN-u6iZnUMQywOewD8GHuY4qsXaaH5U0",
 						"type": "string"
 					}
 				]
