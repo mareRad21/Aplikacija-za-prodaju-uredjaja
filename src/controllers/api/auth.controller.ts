@@ -12,7 +12,6 @@ import { UserRegistrationDto } from "src/dtos/user/user.registration.dto";
 import { UserService } from "src/services/user/user.service";
 import { LoginUserDto } from "src/dtos/user/login.user.dto";
 import { JwtRefreshDataDto } from "src/dtos/auth/jwt.refresh.dto";
-import { UserToken } from "src/entities/user-token.entity";
 import { UserRefreshTokenDto } from "src/dtos/auth/user.refresh.token.dto";
 
 @Controller('auth')
@@ -45,7 +44,7 @@ export class AuthController{
         jwtData.role     = "administrator";
         jwtData.id       = administrator.administratorId;
         jwtData.identity = administrator.username;
-        jwtData.exp = this.getDatePlus(60*60*24*14);
+        jwtData.exp = this.getDatePlus(60*5);
         jwtData.ip = req.ip.toString();
         jwtData.ua = req.headers["user-agent"];
 
